@@ -1,14 +1,18 @@
 import health from '../matchers.js';
 
-const datalist = [
-  [],
-  [],
-  [],
-];
+const heroes = [
+  {name: 'мечник', health: 10},
+  {name: 'маг', health: 100},
+  {name: 'лучник', health: 80},
+]
 
-const handler = test.each(datalist);
+const heroesSorted = [
+  { name: 'маг', health: 100 },
+  { name: 'лучник', health: 80 },
+  { name: 'мечник', health: 10 }
+]
 
-handler('description', (...paramsn) => {
-  const result = 'XXX';
-  expect(result).toBe('YYY');
+test ('Sorting', () => {
+  let result = health(heroes)
+  expect(result).toEqual(heroesSorted)
 });
